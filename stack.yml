@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  carrillo:
+    image: 
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.carrillo.entrypoints=http"
+        - "traefik.http.routers.carrillo.rule=Host(`carrillo.byronrm.com`)"
+        - "traefik.http.middlewares.carrillo-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.carrillo.middlewares=carrillo-https-redirect"
+        - "traefik.http.routers.carrillo-secure.entrypoints=https"
+        - "traefik.http.routers.carrillo-secure.rule=Host(`carrillo.byronrm.com`)"
+        - "traefik.http.routers.carrillo-secure.tls=true"
+        - "traefik.http.routers.carrillo-secure.tls.certresolver=http"
+        - "traefik.http.routers.carrillo-secure.service=carrillo"
+        - "traefik.http.services.carrillo.loadbalancer.server.port=80"
+        - "traefik.docker.network=traefik-public"
+      networks:
+        - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+    
