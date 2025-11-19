@@ -73,6 +73,6 @@ jobs:
 
             docker stack rm cristhian || true
             
-            # docker pull ghcr.io/paul1578/finalquintoa:1.0.0
+            echo "docker pull ghcr.io/paul1578/finalquintoa:1.0.0"
 
             docker stack deploy --with-registry-auth -c stack.yml cristhian
