@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   carrillo:
-    image: pull ghcr.io/paul1578/finalquintoa:1.0.0
+    image: ghcr.io/paul1578/finalquintoa:1.0.0
     deploy:
       replicas: 1
       labels:
