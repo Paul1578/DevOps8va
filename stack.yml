@@ -18,8 +18,8 @@ services:
         - "traefik.http.routers.carrillo-secure.service=carrillo"
         - "traefik.http.services.carrillo.loadbalancer.server.port=80"
         - "traefik.docker.network=traefik-public"
-      networks:
-        - traefik-public
+    networks:
+      - traefik-public
 
 networks:
   traefik-public:

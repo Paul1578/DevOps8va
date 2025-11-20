@@ -77,10 +77,10 @@ jobs:
             docker pull ghcr.io/paul1578/finalquintoa:1.0.0
 
             # Paso 2 Borrar el stack
-            docker stack rm cristhian || true
+            docker stack rm paul || true
             
             sleep 30
 
             # Paso 3 desplegar los servicios
             echo "======> Desplegando Stack"
-            docker stack deploy --with-registry-auth -c stack.yml cristhian
+            docker stack deploy --with-registry-auth -c stack.yml paul
